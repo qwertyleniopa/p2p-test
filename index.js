@@ -13,7 +13,7 @@ peer.on('connection', (revConn) => {
 });
 
 peer.on('error', (err) => {
-    log(`error! type: ${err.type}`);
+    log(`self error! type: ${err.type}`);
 });
 
 document.querySelector('#connectBtn').addEventListener('click', () => {
@@ -26,11 +26,11 @@ document.querySelector('#connectBtn').addEventListener('click', () => {
     });
 
     estConn.on('close', () => {
-        alert('rip');
+        log('estConn close!');
     });
 
-    estConn.on('error', () => {
-        alert('rip');
+    estConn.on('error', (err) => {
+        alert(`estConn error! ${err.type}`);
     });
 });
 
