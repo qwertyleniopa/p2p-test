@@ -20,9 +20,14 @@ document.querySelector('#connectBtn').addEventListener('click', () => {
     const connId = document.querySelector('#connectInput').value;
     const estConn = peer.connect(connId);
 
-    estConn.on('open', () => {
-        log(`connection established to other peer!`);
+    if (estConn.open) {
         setConn(estConn);
+        log(`connection established to other peer! (method 2)`);
+    }
+    
+    estConn.on('open', () => {
+        setConn(estConn);
+        log(`connection established to other peer!`);    
     });
 
     estConn.on('close', () => {
