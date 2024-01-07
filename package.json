@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "live-server src"
+    "dev": "live-server ."
   },
   "devDependencies": {
     "eslint": "^8.56.0",
